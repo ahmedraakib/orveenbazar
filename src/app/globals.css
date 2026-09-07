@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1D4ED8;
+  --color-primary-dark: #16339B;
+  --color-deep: #1E40AF;
+  --color-lightteal: #E8F0FE;
+  --color-brandgreen: #2E9E44;
+  --color-offer: #FFC800;
+  --color-surface: #F5F8FE;
+  --color-ink: #17242a;
+  --color-mutedink: #66777d;
+  --color-line: #e2e8ea;
+  --color-okay: #16a34a;
+  --color-danger: #dc2626;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-bangla: var(--font-hind), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html[lang="bn"] body {
+  font-family: var(--font-bangla);
+}
+
+html[lang="bn"] input,
+html[lang="bn"] textarea,
+html[lang="bn"] select,
+html[lang="bn"] button {
+  font-family: var(--font-bangla);
+}
+
+::selection {
+  background: #1D4ED8;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
+/* hide number input spinners for a cleaner look */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* ---------- motion ---------- */
+@keyframes orveen-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes orveen-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes orveen-slide-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes orveen-slide-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.anim-fade {
+  animation: orveen-fade 0.18s ease-out both;
+}
+.anim-slide-up {
+  animation: orveen-slide-up 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-slide-left {
+  animation: orveen-slide-left 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-slide-right {
+  animation: orveen-slide-right 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade,
+  .anim-slide-up,
+  .anim-slide-left,
+  .anim-slide-right {
+    animation: none;
+  }
+}
+
+/* space for the fixed mobile bottom nav */
+main {
+  padding-bottom: 64px;
+}
+@media (min-width: 1024px) {
+  main {
+    padding-bottom: 0;
+  }
+}
