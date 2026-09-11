@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { useLanguage } from "@/providers/LanguageProvider";
-import { searchProducts } from "@/data/products";
-import { ProductVisual } from "@/components/product/ProductVisual";
-import { formatPrice } from "@/lib/utils";
+import { useAdminStore } from "@/providers/AdminStoreProvider";
+import { ItemVisual } from "@/components/catalog/cards";
 import { cn } from "@/lib/utils";
 
 export function SearchBar({
@@ -18,14 +17,18 @@ export function SearchBar({
   onSubmitted?: () => void;
   className?: string;
 }) {
-  const { t, pick, language } = useLanguage();
+  const { t, pick } = useLanguage();
+  const { publishedItems } = useAdminStore();
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const suggestions = query.trim().length >= 2 ? searchProducts(query).slice(0, 6) : [];
+  const q = query.trim().toLowerCase();
+  const suggestions = q
+    ? publishedItems().filter((i) => i.title.bn.toLowerCase().includes(q) || i.title.en.toLowerCase().includes(q)).slice(0, 6)
+    : [];
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -36,10 +39,10 @@ export function SearchBar({
   }, []);
 
   const submit = (value: string) => {
-    const q = value.trim();
+    const term = value.trim();
     setOpen(false);
     onSubmitted?.();
-    router.push(q ? `/shop?q=${encodeURIComponent(q)}` : "/shop");
+    router.push(term ? `/catalog?search=${encodeURIComponent(term)}` : "/catalog");
   };
 
   return (
@@ -52,9 +55,9 @@ export function SearchBar({
         }}
       >
         <label htmlFor="site-search" className="sr-only">
-          {t("header.searchLabel")}
+          {t("catalog.search")}
         </label>
-        <div className="flex items-center overflow-hidden rounded-xl border border-[#E2E8EA] bg-[#F5F8FE] transition focus-within:border-[#1D4ED8] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#1D4ED8]/15">
+        <div className="flex items-center overflow-hidden rounded-xl border border-[#E2E8EA] bg-[#F7F9FA] transition focus-within:border-[#075ED1] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#075ED1]/15">
           <Search className="ml-3 h-4 w-4 shrink-0 text-[#66777D]" aria-hidden="true" />
           <input
             id="site-search"
@@ -66,7 +69,7 @@ export function SearchBar({
               setOpen(true);
             }}
             onFocus={() => setOpen(true)}
-            placeholder={t("header.searchPlaceholder")}
+            placeholder={t("catalog.searchPlaceholder")}
             className="w-full bg-transparent px-2.5 py-2.5 text-[14px] text-[#17242A] placeholder:text-[#66777D]/70 focus:outline-none sm:text-[15px]"
             autoComplete="off"
           />
@@ -85,42 +88,36 @@ export function SearchBar({
           ) : null}
           <button
             type="submit"
-            className="hidden shrink-0 bg-[#1D4ED8] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#16339B] sm:block"
+            className="hidden shrink-0 bg-[#075ED1] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#0346A5] sm:block"
           >
-            {t("header.searchButton")}
+            {t("catalog.search")}
           </button>
         </div>
       </form>
 
       {open && suggestions.length > 0 ? (
-        <div className="anim-fade absolute left-0 right-0 top-[calc(100%+6px)] z-50 overflow-hidden rounded-xl border border-[#E2E8EA] bg-white shadow-xl shadow-[#16339B]/10">
-          <p className="border-b border-[#E2E8EA] bg-[#F5F8FE] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-[#66777D]">
-            {t("header.searchSuggestions")}
-          </p>
+        <div className="anim-fade absolute left-0 right-0 top-[calc(100%+6px)] z-50 overflow-hidden rounded-xl border border-[#E2E8EA] bg-white shadow-xl shadow-[#0346A5]/10">
           <ul>
-            {suggestions.map((p) => (
-              <li key={p.id}>
+            {suggestions.map((item) => (
+              <li key={item.id}>
                 <button
                   type="button"
                   onClick={() => {
                     setOpen(false);
                     setQuery("");
                     onSubmitted?.();
-                    router.push(`/product/${p.slug}`);
+                    router.push(`/brands/${item.orgSlug}/${item.slug}`);
                   }}
-                  className="flex w-full items-center gap-3 px-3 py-2 text-left transition hover:bg-[#E8F0FE]"
+                  className="flex w-full items-center gap-3 px-3 py-2 text-left transition hover:bg-[#EAF3FE]"
                 >
-                  <ProductVisual product={p} className="h-10 w-10 shrink-0 rounded-lg" />
+                  <ItemVisual item={item} className="h-10 w-10 shrink-0 rounded-lg" label={false} />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-[13px] font-medium text-[#17242A]">
-                      {pick(p.name)}
+                      {pick(item.title)}
                     </span>
                     <span className="block text-[11px] text-[#66777D]">
-                      {pick(p.category)} • {p.weight}
+                      {item.type === "product" ? t("catalog.product") : t("catalog.service")}
                     </span>
-                  </span>
-                  <span className="shrink-0 text-[13px] font-bold text-[#1D4ED8]">
-                    {formatPrice(p.price, language)}
                   </span>
                 </button>
               </li>

@@ -11,6 +11,7 @@ import {
 } from "react";
 import en from "@/locales/en";
 import bn from "@/locales/bn";
+import { enExtra, bnExtra } from "@/locales/extra";
 import { LS_KEYS, readLS, writeLS } from "@/lib/utils";
 import type { Lang, LocalizedText } from "@/lib/types";
 
@@ -26,7 +27,10 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-const dictionaries: Record<Lang, Record<string, unknown>> = { en, bn };
+const dictionaries: Record<Lang, Record<string, unknown>> = {
+  en: { ...en, ...enExtra },
+  bn: { ...bn, ...bnExtra },
+};
 
 function lookup(dict: Record<string, unknown>, path: string): string | undefined {
   const value = path.split(".").reduce<unknown>((acc, part) => {

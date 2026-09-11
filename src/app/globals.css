@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1D4ED8;
-  --color-primary-dark: #16339B;
+  --color-primary: #075ED1;
+  --color-primary-dark: #0346A5;
   --color-deep: #1E40AF;
-  --color-lightteal: #E8F0FE;
-  --color-brandgreen: #2E9E44;
+  --color-lightteal: #EAF3FE;
+  --color-brandgreen: #2D9819;
   --color-offer: #FFC800;
-  --color-surface: #F5F8FE;
+  --color-surface: #F7F9FA;
   --color-ink: #17242a;
   --color-mutedink: #66777d;
   --color-line: #e2e8ea;
@@ -44,12 +44,12 @@ html[lang="bn"] button {
 }
 
 ::selection {
-  background: #1D4ED8;
+  background: #075ED1;
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid #1D4ED8;
+  outline: 2px solid #075ED1;
   outline-offset: 2px;
 }
 

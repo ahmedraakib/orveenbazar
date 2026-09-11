@@ -150,10 +150,10 @@ export const aboutIntro: LocalizedText[] = [
 export const faqItems: { tag: LocalizedText; q: LocalizedText; a: LocalizedText }[] = [
   {
     tag: L("কেনাকাটা", "Shopping"),
-    q: L("কীভাবে পণ্য অর্ডার করব?", "How do I place an order?"),
+    q: L("কীভাবে পণ্যের তথ্য দেখব?", "How do I browse product information?"),
     a: L(
-      "পণ্য বেছে করে কার্টে যোগ করুন, তারপর চেকআউট পেজে ডেলিভারি তথ্য পূরণ করে অর্ডার সম্পন্ন করুন।",
-      "Add products to your cart, then complete the checkout page with your delivery information.",
+      "ক্যাটালগ পেজে সার্চ ও ফিল্টার ব্যবহার করে পণ্য বা সেবা খুঁজুন, তারপর আইটেম কার্ডে ট্যাপ করে বিস্তারিত দেখুন।",
+      "Use search and filters on the catalog page to find products or services, then open an item card for full details.",
     ),
   },
   {
@@ -174,18 +174,18 @@ export const faqItems: { tag: LocalizedText; q: LocalizedText; a: LocalizedText 
   },
   {
     tag: L("চেকআউট", "Checkout"),
-    q: L("ডেলিভারি চার্জ কত?", "What is the delivery charge?"),
+    q: L("উইশলিস্ট কীভাবে ব্যবহার করব?", "How do I use the wishlist?"),
     a: L(
-      "ডেলিভারি চার্জ এখনো নির্ধারণ চূড়ান্ত হয়নি। অর্ডার নিশ্চিতকরণের সময় এলাকা অনুযায়ী চার্জ জানানো হবে।",
-      "Delivery charges are not finalised yet. The charge for your area is communicated at order confirmation.",
+      "লগইন করে যেকোনো আইটেমের হার্ট আইকনে ট্যাপ করুন — আইটেমটি আপনার উইশলিস্টে সংরক্ষিত হবে।",
+      "Log in and tap the heart icon on any item — it will be saved to your wishlist.",
     ),
   },
   {
     tag: L("চেকআউট", "Checkout"),
-    q: L("পেমেন্ট কীভাবে করব?", "How can I pay?"),
+    q: L("এই প্ল্যাটফর্মে কী কী দেখা যাবে?", "What can I find on this platform?"),
     a: L(
-      "বর্তমানে ক্যাশ অন ডেলিভারি সুবিধা রয়েছে। মোবাইল ফিন্যান্সিয়াল সার্ভিস ও অনলাইন পেমেন্ট শীঘ্রই যুক্ত হবে।",
-      "Cash on Delivery is currently available. Mobile financial services and online payment will be added soon.",
+      "তিনটি ব্র্যান্ডের পণ্য ও সেবার ক্যাটালগ, ব্র্যান্ড পরিচিতি, ডিলার ও কর্পোরেট তথ্য এবং উইশলিস্ট সুবিধা।",
+      "Product and service catalogs for three brands, brand introductions, dealer and corporate information, and a wishlist feature.",
     ),
   },
   {

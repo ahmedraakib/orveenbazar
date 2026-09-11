@@ -11,7 +11,7 @@ export function LogoMark({ className }: { className?: string }) {
       <defs>
         <linearGradient id="orveen-leaf" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#7DC242" />
-          <stop offset="100%" stopColor="#1F7A33" />
+          <stop offset="100%" stopColor="#238014" />
         </linearGradient>
       </defs>
       <circle cx="27" cy="37" r="19" stroke="currentColor" strokeWidth="8" />
@@ -33,11 +33,11 @@ export function Logo({ compact = false, light = false }: { compact?: boolean; li
   return (
     <Link
       href="/"
-      className="flex shrink-0 items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D4ED8]"
+      className="flex shrink-0 items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#075ED1]"
       aria-label="ORVEEN BAZZAR home"
     >
       <LogoMark
-        className={cn(compact ? "h-8 w-8" : "h-9 w-9 sm:h-10 sm:w-10", light ? "text-white" : "text-[#1D4ED8]")}
+        className={cn(compact ? "h-8 w-8" : "h-9 w-9 sm:h-10 sm:w-10", light ? "text-white" : "text-[#075ED1]")}
       />
       <span className="flex flex-col leading-none">
         <span
@@ -46,9 +46,9 @@ export function Logo({ compact = false, light = false }: { compact?: boolean; li
             compact ? "text-[15px]" : "text-base sm:text-lg",
           )}
         >
-          <span className={light ? "text-white" : "text-[#16339B]"}>ORVEEN</span>{" "}
-          <span className={light ? "text-[#8ED060]" : "text-[#2E9E44]"}>BAZAAR</span>
-          <span className={light ? "text-[#FFC800]" : "text-[#1D4ED8]"}>.COM</span>
+          <span className={light ? "text-white" : "text-[#0346A5]"}>ORVEEN</span>{" "}
+          <span className={light ? "text-[#8ED060]" : "text-[#2D9819]"}>BAZAAR</span>
+          <span className={light ? "text-[#FFC800]" : "text-[#075ED1]"}>.COM</span>
         </span>
         {!compact ? (
           <span

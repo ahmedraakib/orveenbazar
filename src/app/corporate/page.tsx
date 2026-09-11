@@ -86,19 +86,19 @@ export default function CorporatePage() {
       <section className="mt-4 grid gap-8 rounded-3xl border border-[#E2E8EA] bg-white p-6 sm:p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div>
           <Badge tone="green">{t("corporate.kicker")}</Badge>
-          <h1 className="mt-3 text-[24px] font-black leading-snug text-[#16339B] sm:text-[32px]">
+          <h1 className="mt-3 text-[24px] font-black leading-snug text-[#0346A5] sm:text-[32px]">
             {t("corporate.heading")}
           </h1>
           <p className="mt-2 text-[14px] leading-relaxed text-[#66777D]">{t("corporate.sub")}</p>
 
-          <h2 className="mt-6 text-[15px] font-bold text-[#16339B]">{t("corporate.audiencesHeading")}</h2>
+          <h2 className="mt-6 text-[15px] font-bold text-[#0346A5]">{t("corporate.audiencesHeading")}</h2>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">
             {corporateAudiences.map((aud) => (
               <li
                 key={aud.en}
-                className="flex items-center gap-2 rounded-xl border border-[#E2E8EA] bg-[#F5F8FE] px-3 py-2 text-[12.5px] font-semibold text-[#17242A]"
+                className="flex items-center gap-2 rounded-xl border border-[#E2E8EA] bg-[#F7F9FA] px-3 py-2 text-[12.5px] font-semibold text-[#17242A]"
               >
-                <Building2 className="h-4 w-4 shrink-0 text-[#1D4ED8]" />
+                <Building2 className="h-4 w-4 shrink-0 text-[#075ED1]" />
                 {pick(aud)}
               </li>
             ))}
@@ -117,7 +117,7 @@ export default function CorporatePage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="text-[20px] font-bold text-[#16339B] sm:text-[24px]">
+        <h2 className="text-[20px] font-bold text-[#0346A5] sm:text-[24px]">
           {t("corporate.benefitsHeading")}
         </h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -126,12 +126,12 @@ export default function CorporatePage() {
             return (
               <div
                 key={benefit.title.en}
-                className="rounded-2xl border border-[#E2E8EA] bg-white p-4 transition hover:border-[#1D4ED8]/30 hover:shadow-md"
+                className="rounded-2xl border border-[#E2E8EA] bg-white p-4 transition hover:border-[#075ED1]/30 hover:shadow-md"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F0FE] text-[#1D4ED8]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EAF3FE] text-[#075ED1]">
                   <Icon className="h-5 w-5" />
                 </span>
-                <p className="mt-3 text-[13.5px] font-bold text-[#16339B]">{pick(benefit.title)}</p>
+                <p className="mt-3 text-[13.5px] font-bold text-[#0346A5]">{pick(benefit.title)}</p>
                 <p className="mt-1 text-[12px] leading-relaxed text-[#66777D]">{pick(benefit.desc)}</p>
               </div>
             );
@@ -140,7 +140,7 @@ export default function CorporatePage() {
       </section>
 
       <section className="mt-10 rounded-3xl border border-[#E2E8EA] bg-white p-5 sm:p-8">
-        <h2 className="text-[20px] font-bold text-[#16339B]">{t("corporate.formHeading")}</h2>
+        <h2 className="text-[20px] font-bold text-[#0346A5]">{t("corporate.formHeading")}</h2>
         <p className="mt-1 text-[13px] text-[#66777D]">{t("corporate.formSub")}</p>
 
         {done ? (
@@ -154,7 +154,7 @@ export default function CorporatePage() {
                 setForm(initial);
                 setDone(false);
               }}
-              className="mt-5 rounded-xl bg-[#1D4ED8] px-5 py-2.5 text-[13.5px] font-bold text-white transition hover:bg-[#16339B]"
+              className="mt-5 rounded-xl bg-[#075ED1] px-5 py-2.5 text-[13.5px] font-bold text-white transition hover:bg-[#0346A5]"
             >
               {t("corporate.another")}
             </button>
@@ -189,7 +189,7 @@ export default function CorporatePage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full rounded-xl bg-[#2E9E44] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#1F7A33] disabled:bg-[#E2E8EA] disabled:text-[#66777D] sm:w-auto"
+                className="w-full rounded-xl bg-[#2D9819] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#238014] disabled:bg-[#E2E8EA] disabled:text-[#66777D] sm:w-auto"
               >
                 {submitting ? t("corporate.submitting") : t("corporate.submit")}
               </button>

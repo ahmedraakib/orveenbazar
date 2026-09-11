@@ -18,11 +18,11 @@ export function ToastViewport() {
           type="button"
           onClick={() => dismiss(toast.id)}
           className={cn(
-            "anim-slide-up pointer-events-auto flex w-full max-w-sm items-start gap-2.5 rounded-xl border border-[#E2E8EA] bg-white px-4 py-3 text-left shadow-lg shadow-[#16339B]/10",
+            "anim-slide-up pointer-events-auto flex w-full max-w-sm items-start gap-2.5 rounded-xl border border-[#E2E8EA] bg-white px-4 py-3 text-left shadow-lg shadow-[#0346A5]/10",
             "border-l-4",
             toast.type === "success" && "border-l-[#16A34A]",
             toast.type === "error" && "border-l-[#DC2626]",
-            toast.type === "info" && "border-l-[#1D4ED8]",
+            toast.type === "info" && "border-l-[#075ED1]",
           )}
         >
           {toast.type === "success" ? (
@@ -30,7 +30,7 @@ export function ToastViewport() {
           ) : toast.type === "error" ? (
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#DC2626]" />
           ) : (
-            <Info className="mt-0.5 h-4 w-4 shrink-0 text-[#1D4ED8]" />
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-[#075ED1]" />
           )}
           <span className="text-sm font-medium text-[#17242A]">{toast.message}</span>
         </button>

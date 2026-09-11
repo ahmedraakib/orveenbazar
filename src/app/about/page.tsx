@@ -40,10 +40,10 @@ export default function AboutPage() {
       <section className="mt-4 grid gap-8 rounded-3xl border border-[#E2E8EA] bg-white p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <Badge>{t("about.kicker")}</Badge>
-          <h1 className="mt-3 text-[26px] font-black text-[#16339B] sm:text-[34px]">
+          <h1 className="mt-3 text-[26px] font-black text-[#0346A5] sm:text-[34px]">
             {t("about.heading")}
           </h1>
-          <p className="mt-2 text-[13px] font-semibold text-[#2E9E44]">{company.brandMessage && pick(company.brandMessage)}</p>
+          <p className="mt-2 text-[13px] font-semibold text-[#2D9819]">{company.brandMessage && pick(company.brandMessage)}</p>
           <div className="mt-4 space-y-3 text-[14px] leading-relaxed text-[#17242A]">
             {aboutIntro.map((para, i) => (
               <p key={i} className={i > 0 ? "text-[#66777D]" : undefined}>
@@ -87,7 +87,7 @@ export default function AboutPage() {
               <UserRound className="h-5 w-5 text-[#FFC800]" />
               {t("about.founderHeading")}
             </h2>
-            <div className="mt-4 space-y-3 border-l-2 border-[#2E9E44]/60 pl-4 text-[14px] leading-relaxed text-white/85">
+            <div className="mt-4 space-y-3 border-l-2 border-[#2D9819]/60 pl-4 text-[14px] leading-relaxed text-white/85">
               {founderMessage.map((para, i) => (
                 <p key={i}>{pick(para)}</p>
               ))}
@@ -99,21 +99,21 @@ export default function AboutPage() {
       {/* vision & mission */}
       <section className="mt-8 grid gap-4 lg:grid-cols-2">
         <div className="rounded-3xl border border-[#E2E8EA] bg-white p-6 sm:p-8">
-          <h2 className="flex items-center gap-2 text-[19px] font-bold text-[#16339B]">
-            <Compass className="h-5 w-5 text-[#1D4ED8]" />
+          <h2 className="flex items-center gap-2 text-[19px] font-bold text-[#0346A5]">
+            <Compass className="h-5 w-5 text-[#075ED1]" />
             {t("about.visionHeading")}
           </h2>
           <p className="mt-3 text-[14px] leading-relaxed text-[#66777D]">{pick(visionText)}</p>
         </div>
         <div className="rounded-3xl border border-[#E2E8EA] bg-white p-6 sm:p-8">
-          <h2 className="flex items-center gap-2 text-[19px] font-bold text-[#16339B]">
-            <Target className="h-5 w-5 text-[#1D4ED8]" />
+          <h2 className="flex items-center gap-2 text-[19px] font-bold text-[#0346A5]">
+            <Target className="h-5 w-5 text-[#075ED1]" />
             {t("about.missionHeading")}
           </h2>
           <ul className="mt-3 space-y-2">
             {missionPoints.map((point, i) => (
               <li key={i} className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-[#66777D]">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2E9E44]" />
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2D9819]" />
                 {pick(point)}
               </li>
             ))}
@@ -128,12 +128,12 @@ export default function AboutPage() {
           {coreValues.map((value) => (
             <div
               key={value.title.en}
-              className="flex flex-col items-center gap-2 rounded-2xl border border-[#E2E8EA] bg-white p-4 text-center transition hover:border-[#1D4ED8]/30 hover:shadow-md"
+              className="flex flex-col items-center gap-2 rounded-2xl border border-[#E2E8EA] bg-white p-4 text-center transition hover:border-[#075ED1]/30 hover:shadow-md"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F0FE] text-[#1D4ED8]">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EAF3FE] text-[#075ED1]">
                 <Gem className="h-4.5 w-4.5" />
               </span>
-              <span className="text-[13px] font-bold text-[#16339B]">{pick(value.title)}</span>
+              <span className="text-[13px] font-bold text-[#0346A5]">{pick(value.title)}</span>
             </div>
           ))}
         </div>
@@ -148,11 +148,11 @@ export default function AboutPage() {
               key={level.level.en + i}
               className="flex items-center gap-3 rounded-2xl border border-[#E2E8EA] bg-white p-4"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1D4ED8] text-[13px] font-black text-white">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#075ED1] text-[13px] font-black text-white">
                 {i + 1}
               </span>
               <span>
-                <span className="block text-[13.5px] font-bold text-[#16339B]">{pick(level.level)}</span>
+                <span className="block text-[13.5px] font-bold text-[#0346A5]">{pick(level.level)}</span>
                 <span className="block text-[12.5px] text-[#66777D]">→ {pick(level.role)}</span>
               </span>
             </div>
@@ -169,7 +169,7 @@ export default function AboutPage() {
               key={item.en}
               className="inline-flex items-center gap-1.5 rounded-full border border-[#E2E8EA] bg-white px-3.5 py-2 text-[12.5px] font-semibold text-[#17242A]"
             >
-              <Megaphone className="h-3.5 w-3.5 text-[#1D4ED8]" />
+              <Megaphone className="h-3.5 w-3.5 text-[#075ED1]" />
               {pick(item)}
             </span>
           ))}
@@ -179,11 +179,11 @@ export default function AboutPage() {
       {/* roadmap */}
       <section className="mt-10">
         <SectionHeading title={t("about.roadmapHeading")} subtitle={t("about.roadmapSub")} />
-        <ol className="relative space-y-6 border-l-2 border-[#1D4ED8]/20 pl-6">
+        <ol className="relative space-y-6 border-l-2 border-[#075ED1]/20 pl-6">
           {roadmap.map((step) => (
             <li key={step.year} className="relative">
-              <span className="absolute -left-[31px] flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#1D4ED8] bg-white">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#1D4ED8]" />
+              <span className="absolute -left-[31px] flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#075ED1] bg-white">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#075ED1]" />
               </span>
               <div className="rounded-2xl border border-[#E2E8EA] bg-white p-5">
                 <div className="flex flex-wrap items-center gap-2">
@@ -196,7 +196,7 @@ export default function AboutPage() {
                 <ul className="mt-2.5 space-y-1.5">
                   {step.points.map((point, i) => (
                     <li key={i} className="flex items-start gap-2 text-[13.5px] leading-relaxed text-[#17242A]">
-                      <Flag className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#2E9E44]" />
+                      <Flag className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#2D9819]" />
                       {pick(point)}
                     </li>
                   ))}
@@ -215,28 +215,28 @@ export default function AboutPage() {
       {/* locations + commitment */}
       <section className="mt-10 grid gap-4 lg:grid-cols-2">
         <div className="rounded-3xl border border-[#E2E8EA] bg-white p-6 sm:p-8">
-          <h2 className="flex items-center gap-2 text-[19px] font-bold text-[#16339B]">
-            <MapPin className="h-5 w-5 text-[#1D4ED8]" />
+          <h2 className="flex items-center gap-2 text-[19px] font-bold text-[#0346A5]">
+            <MapPin className="h-5 w-5 text-[#075ED1]" />
             {t("about.locationsHeading")}
           </h2>
           <div className="mt-4 space-y-4">
             <div className="flex items-start gap-3">
-              <Building2 className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" />
+              <Building2 className="mt-0.5 h-5 w-5 shrink-0 text-[#075ED1]" />
               <div>
-                <p className="text-[13px] font-bold text-[#16339B]">{t("about.businessLocation")}</p>
+                <p className="text-[13px] font-bold text-[#0346A5]">{t("about.businessLocation")}</p>
                 <p className="mt-0.5 text-[13.5px] text-[#66777D]">{pick(company.businessAddress)}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Factory className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" />
+              <Factory className="mt-0.5 h-5 w-5 shrink-0 text-[#075ED1]" />
               <div>
-                <p className="text-[13px] font-bold text-[#16339B]">{t("about.productionLocation")}</p>
+                <p className="text-[13px] font-bold text-[#0346A5]">{t("about.productionLocation")}</p>
                 <p className="mt-0.5 text-[13.5px] text-[#66777D]">{pick(company.productionAddress)}</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="rounded-3xl bg-[#2E9E44] p-6 text-white sm:p-8">
+        <div className="rounded-3xl bg-[#2D9819] p-6 text-white sm:p-8">
           <h2 className="text-[19px] font-bold">{t("about.commitmentHeading")}</h2>
           <div className="mt-3 space-y-3 text-[14px] leading-relaxed text-white/90">
             {commitmentText.map((para, i) => (

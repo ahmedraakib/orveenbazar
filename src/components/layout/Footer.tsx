@@ -12,8 +12,10 @@ export function Footer() {
 
   const quickLinks = [
     { href: "/", label: t("nav.home") },
-    { href: "/shop", label: t("nav.shop") },
-    { href: "/offers", label: t("nav.offers") },
+    { href: "/brands", label: t("nav2.brands") },
+    { href: "/catalog", label: t("nav2.catalog") },
+    { href: "/account/wishlist", label: t("wishlist.title") },
+    { href: "/account", label: t("account.title") },
     { href: "/about", label: t("nav.about") },
     { href: "/contact", label: t("nav.contact") },
     { href: "/faq", label: t("faq.heading") },
@@ -23,11 +25,10 @@ export function Footer() {
     { href: "/dealer", label: t("footer.dealer") },
     { href: "/dealer", label: t("footer.distributor") },
     { href: "/corporate", label: t("footer.corporate") },
-    { href: "/offers", label: t("footer.offers") },
   ];
 
   return (
-    <footer className="mt-16 bg-[#16339B] text-white">
+    <footer className="mt-16 bg-[#0346A5] text-white">
       {/* trust lead-in */}
       <div className="border-b border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 px-4 py-8 text-center lg:px-8">
@@ -103,7 +104,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-2 transition hover:text-white"
               >
-                <WhatsAppIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#2E9E44]" />
+                <WhatsAppIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#2D9819]" />
                 {company.whatsappLocal}
               </a>
             </li>

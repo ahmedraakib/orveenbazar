@@ -70,7 +70,7 @@ export default function ContactPage() {
   return (
     <div className="mx-auto max-w-7xl px-3 py-5 sm:px-4 lg:px-8 lg:py-8">
       <Breadcrumb items={[{ label: t("common.home"), href: "/" }, { label: t("nav.contact") }]} />
-      <h1 className="mt-3 text-[24px] font-black text-[#16339B] sm:text-[32px]">{t("contact.heading")}</h1>
+      <h1 className="mt-3 text-[24px] font-black text-[#0346A5] sm:text-[32px]">{t("contact.heading")}</h1>
       <p className="mt-1.5 max-w-2xl text-[13.5px] text-[#66777D]">{t("contact.sub")}</p>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -80,9 +80,9 @@ export default function ContactPage() {
             href={card.href}
             target={card.href.startsWith("http") ? "_blank" : undefined}
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-2xl border border-[#E2E8EA] bg-white p-4 transition hover:border-[#1D4ED8]/40 hover:shadow-md"
+            className="flex items-center gap-3 rounded-2xl border border-[#E2E8EA] bg-white p-4 transition hover:border-[#075ED1]/40 hover:shadow-md"
           >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#E8F0FE] text-[#1D4ED8]">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EAF3FE] text-[#075ED1]">
               <card.icon className="h-4.5 w-4.5" />
             </span>
             <span className="min-w-0">
@@ -99,16 +99,16 @@ export default function ContactPage() {
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <div className="flex items-start gap-3 rounded-2xl border border-[#E2E8EA] bg-white p-4">
-          <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" />
+          <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#075ED1]" />
           <div>
-            <p className="text-[12.5px] font-bold text-[#16339B]">{t("contact.businessLocation")}</p>
+            <p className="text-[12.5px] font-bold text-[#0346A5]">{t("contact.businessLocation")}</p>
             <p className="mt-0.5 text-[13px] text-[#66777D]">{pick(company.businessAddress)}</p>
           </div>
         </div>
         <div className="flex items-start gap-3 rounded-2xl border border-[#E2E8EA] bg-white p-4">
-          <Factory className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" />
+          <Factory className="mt-0.5 h-5 w-5 shrink-0 text-[#075ED1]" />
           <div>
-            <p className="text-[12.5px] font-bold text-[#16339B]">{t("contact.productionLocation")}</p>
+            <p className="text-[12.5px] font-bold text-[#0346A5]">{t("contact.productionLocation")}</p>
             <p className="mt-0.5 text-[13px] text-[#66777D]">{pick(company.productionAddress)}</p>
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_380px] lg:items-start">
         <section className="rounded-3xl border border-[#E2E8EA] bg-white p-5 sm:p-8">
-          <h2 className="text-[19px] font-bold text-[#16339B]">{t("contact.formHeading")}</h2>
+          <h2 className="text-[19px] font-bold text-[#0346A5]">{t("contact.formHeading")}</h2>
           <p className="mt-1 text-[13px] text-[#66777D]">{t("contact.formSub")}</p>
 
           {done ? (
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   setForm(initial);
                   setDone(false);
                 }}
-                className="mt-4 rounded-xl bg-[#1D4ED8] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#16339B]"
+                className="mt-4 rounded-xl bg-[#075ED1] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#0346A5]"
               >
                 {t("contact.submit")}
               </button>
@@ -156,7 +156,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full rounded-xl bg-[#1D4ED8] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#16339B] disabled:bg-[#E2E8EA] disabled:text-[#66777D] sm:w-auto"
+                  className="w-full rounded-xl bg-[#075ED1] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#0346A5] disabled:bg-[#E2E8EA] disabled:text-[#66777D] sm:w-auto"
                 >
                   {submitting ? t("contact.submitting") : t("contact.submit")}
                 </button>
@@ -167,15 +167,15 @@ export default function ContactPage() {
 
         <aside className="space-y-4">
           <div className="rounded-3xl border border-dashed border-[#E2E8EA] bg-white p-6 text-center">
-            <MapPinned className="mx-auto h-8 w-8 text-[#1D4ED8]" />
-            <h2 className="mt-2 text-[15px] font-bold text-[#16339B]">{t("contact.mapTitle")}</h2>
+            <MapPinned className="mx-auto h-8 w-8 text-[#075ED1]" />
+            <h2 className="mt-2 text-[15px] font-bold text-[#0346A5]">{t("contact.mapTitle")}</h2>
             <p className="mt-1 text-[12.5px] text-[#66777D]">{t("contact.mapNote")}</p>
           </div>
           <a
             href={whatsappLink(language === "bn" ? company.whatsappMessage.bn : company.whatsappMessage.en)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-2xl bg-[#2E9E44] px-5 py-3.5 text-[14px] font-bold text-white transition hover:bg-[#1F7A33]"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-[#2D9819] px-5 py-3.5 text-[14px] font-bold text-white transition hover:bg-[#238014]"
           >
             <WhatsAppIcon className="h-4.5 w-4.5" />
             {t("contact.whatsappCta")}

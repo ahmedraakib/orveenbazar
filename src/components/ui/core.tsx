@@ -48,7 +48,7 @@ export function Modal({
   return (
     <div className="fixed inset-0 z-[70] flex items-end justify-center sm:items-center sm:p-4">
       <div
-        className="anim-fade absolute inset-0 bg-[#16339B]/50 backdrop-blur-[2px]"
+        className="anim-fade absolute inset-0 bg-[#0346A5]/50 backdrop-blur-[2px]"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -69,7 +69,7 @@ export function Modal({
           type="button"
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute right-3 top-3 z-10 rounded-full border border-[#E2E8EA] bg-white p-1.5 text-[#66777D] transition hover:bg-[#E8F0FE] hover:text-[#1D4ED8] focus-visible:outline-2 focus-visible:outline-[#1D4ED8]"
+          className="absolute right-3 top-3 z-10 rounded-full border border-[#E2E8EA] bg-white p-1.5 text-[#66777D] transition hover:bg-[#EAF3FE] hover:text-[#075ED1] focus-visible:outline-2 focus-visible:outline-[#075ED1]"
         >
           <X className="h-4 w-4" />
         </button>
@@ -115,7 +115,7 @@ export function SidePanel({
   return (
     <div className="fixed inset-0 z-[70]">
       <div
-        className="anim-fade absolute inset-0 bg-[#16339B]/50 backdrop-blur-[2px]"
+        className="anim-fade absolute inset-0 bg-[#0346A5]/50 backdrop-blur-[2px]"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -151,7 +151,7 @@ export function EmptyState({
 }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-[#E2E8EA] bg-white px-6 py-14 text-center">
-      <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E8F0FE] text-[#1D4ED8]">
+      <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EAF3FE] text-[#075ED1]">
         <Icon className="h-6 w-6" />
       </span>
       <h3 className="text-lg font-semibold text-[#17242A]">{title}</h3>
@@ -244,7 +244,7 @@ export function QuantitySelector({
   compact?: boolean;
 }) {
   const btn = cn(
-    "flex items-center justify-center text-[#1D4ED8] transition hover:bg-[#E8F0FE] disabled:cursor-not-allowed disabled:text-[#66777D]/40 disabled:hover:bg-transparent focus-visible:outline-2 focus-visible:outline-[#1D4ED8]",
+    "flex items-center justify-center text-[#075ED1] transition hover:bg-[#EAF3FE] disabled:cursor-not-allowed disabled:text-[#66777D]/40 disabled:hover:bg-transparent focus-visible:outline-2 focus-visible:outline-[#075ED1]",
     compact ? "h-7 w-7" : "h-9 w-9",
   );
   return (
@@ -302,7 +302,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
             {item.href ? (
               <a
                 href={item.href}
-                className="truncate transition hover:text-[#1D4ED8] hover:underline"
+                className="truncate transition hover:text-[#075ED1] hover:underline"
               >
                 {item.label}
               </a>
@@ -334,7 +334,7 @@ export function SectionHeading({
   return (
     <div className={cn("mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8", className)}>
       <div className="min-w-0">
-        <h2 className="text-[22px] font-bold leading-snug text-[#16339B] sm:text-[28px]">
+        <h2 className="text-[22px] font-bold leading-snug text-[#0346A5] sm:text-[28px]">
           {title}
         </h2>
         {subtitle ? <p className="mt-1.5 max-w-2xl text-sm text-[#66777D]">{subtitle}</p> : null}
@@ -356,8 +356,8 @@ export function Badge({
   className?: string;
 }) {
   const tones: Record<string, string> = {
-    teal: "bg-[#E8F0FE] text-[#1D4ED8]",
-    green: "bg-[#2E9E44]/10 text-[#1F7A33]",
+    teal: "bg-[#EAF3FE] text-[#075ED1]",
+    green: "bg-[#2D9819]/10 text-[#238014]",
     amber: "bg-[#FFC800]/15 text-[#8A6400]",
     red: "bg-[#DC2626]/10 text-[#B91C1C]",
     muted: "bg-[#E2E8EA]/60 text-[#66777D]",
@@ -378,7 +378,7 @@ export function Badge({
 /* ------------------------------ Form controls ------------------------------ */
 
 export const inputClass =
-  "w-full rounded-xl border border-[#E2E8EA] bg-white px-3.5 py-2.5 text-[15px] text-[#17242A] placeholder:text-[#66777D]/60 transition focus:border-[#1D4ED8] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 disabled:bg-[#F5F8FE]";
+  "w-full rounded-xl border border-[#E2E8EA] bg-white px-3.5 py-2.5 text-[15px] text-[#17242A] placeholder:text-[#66777D]/60 transition focus:border-[#075ED1] focus:outline-none focus:ring-2 focus:ring-[#075ED1]/15 disabled:bg-[#F7F9FA]";
 
 export function Field({
   label,

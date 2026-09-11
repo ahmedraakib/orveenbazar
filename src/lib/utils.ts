@@ -63,15 +63,14 @@ export function removeLS(key: string): void {
   }
 }
 
+/** Prototype storage keys — production must move this data to a backend. */
 export const LS_KEYS = {
   language: "orveen-language",
-  cart: "orveen-cart",
-  wishlist: "orveen-wishlist",
-  recent: "orveen-recently-viewed",
-  orders: "orveen-orders",
-  lastOrder: "orveen-last-order",
-  session: "orveen-session",
-  addresses: "orveen-addresses",
+  wishlist: "orveen-demo-wishlist",
+  pendingWishlist: "orveen-demo-wishlist-pending",
+  session: "orveen-demo-session",
+  demoUsers: "orveen-demo-users",
+  adminData: "orveen-demo-admin-data",
 } as const;
 
 /** Build a wa.me link with a prefilled message. */
