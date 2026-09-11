@@ -5,7 +5,6 @@ export const company = {
   platform: "ORVEEN BAZZAR.COM",
   associatedBrand: "ECO FAST BD",
   website: "www.orveenbazzar.com",
-  facebook: "https://www.facebook.com/share/1EzgwEDyQX/",
   email: "orveenbazzar@gmail.com",
   whatsappLocal: "01335189426",
   whatsappInternational: "+8801335189426",
