@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Factory, Globe, Mail, MapPin, MapPinned } from "lucide-react";
+import { CheckCircle2, ExternalLink, Factory, Globe, Mail, MapPin, MapPinned } from "lucide-react";
 import { useLanguage, usePageTitle } from "@/providers/LanguageProvider";
 import { useToast } from "@/providers/StoreProvider";
 import { company } from "@/data/company";
@@ -65,6 +65,7 @@ export default function ContactPage() {
     },
     { icon: Mail, label: t("contact.email"), value: company.email, href: `mailto:${company.email}` },
     { icon: Globe, label: t("contact.website"), value: company.website, href: "https://www.orveenbazzar.com" },
+    { icon: ExternalLink, label: t("contact.facebook"), value: t("contact.facebook"), href: company.facebook },
   ];
 
   return (
@@ -73,7 +74,7 @@ export default function ContactPage() {
       <h1 className="mt-3 text-[24px] font-black text-[#0346A5] sm:text-[32px]">{t("contact.heading")}</h1>
       <p className="mt-1.5 max-w-2xl text-[13.5px] text-[#66777D]">{t("contact.sub")}</p>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-3">
+      <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <a
             key={card.label}

@@ -327,6 +327,7 @@ const en = {
     whatsapp: "WhatsApp",
     email: "Email",
     website: "Website",
+    facebook: "Facebook",
     businessLocation: "Business Operations",
     productionLocation: "Production / Factory Operations",
     formHeading: "Send us a message",

@@ -329,6 +329,7 @@ const bn: Dictionary = {
     whatsapp: "হোয়াটসঅ্যাপ",
     email: "ইমেইল",
     website: "ওয়েবসাইট",
+    facebook: "ফেসবুক",
     businessLocation: "ব্যবসায়িক কার্যক্রম",
     productionLocation: "উৎপাদন/ফ্যাক্টরি কার্যক্রম",
     formHeading: "আমাদের বার্তা পাঠান",

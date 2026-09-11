@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin, Factory } from "lucide-react";
+import { ExternalLink, Mail, MapPin, Factory } from "lucide-react";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { Logo, LogoMark } from "./Logo";
 import { WhatsAppIcon } from "@/components/ui/core";
@@ -112,6 +112,17 @@ export function Footer() {
               <a href={`mailto:${company.email}`} className="flex items-start gap-2 transition hover:text-white">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#FFC800]" />
                 {company.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={company.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 transition hover:text-white"
+              >
+                <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-[#FFC800]" />
+                {t("contact.facebook")}
               </a>
             </li>
             <li className="flex items-start gap-2">
