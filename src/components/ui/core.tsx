@@ -460,3 +460,14 @@ export function WhatsAppIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("flex items-center justify-center rounded-full bg-[#FFC800] text-[#0346A5]", className)}
+    >
+      <span className="translate-y-[1px] font-sans text-[13px] font-black leading-none">f</span>
+    </span>
+  );
+}

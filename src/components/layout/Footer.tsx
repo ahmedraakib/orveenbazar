@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink, Mail, MapPin, Factory } from "lucide-react";
+import { Mail, MapPin, Factory } from "lucide-react";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { Logo, LogoMark } from "./Logo";
-import { WhatsAppIcon } from "@/components/ui/core";
+import { FacebookIcon, WhatsAppIcon } from "@/components/ui/core";
 import { company } from "@/data/company";
 
 export function Footer() {
@@ -121,8 +121,8 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-2 transition hover:text-white"
               >
-                <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-[#FFC800]" />
-                {t("contact.facebook")}
+                <FacebookIcon className="mt-0.5 h-4 w-4 shrink-0" />
+                Orveen Bazaar
               </a>
             </li>
             <li className="flex items-start gap-2">
