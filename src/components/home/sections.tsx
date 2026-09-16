@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, Headphones, ShieldCheck, Tag, Truck } from "lucide-react";
@@ -61,12 +60,11 @@ export function HeroSection() {
         </div>
         <div className="relative">
           <div className="overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/25">
-            <Image
-              src="/images/hero-staples.jpg"
+            {/* Local SVG asset avoids a remote/optimizer dependency for the hero visual. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/hero-staples.svg"
               alt="Everyday grocery staples — oil, rice, lentils and spices"
-              width={1200}
-              height={900}
-              priority
               className="h-full w-full object-cover"
             />
           </div>

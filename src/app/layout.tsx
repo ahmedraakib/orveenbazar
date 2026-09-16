@@ -77,8 +77,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <LanguageProvider>
-          <StoreProvider>
-            <AuthProvider>
+          <AuthProvider>
+            <StoreProvider>
               <AdminStoreProvider>
                 <a
                   href="#main-content"
@@ -94,8 +94,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <ToastViewport />
                 <WhatsAppButton />
               </AdminStoreProvider>
-            </AuthProvider>
-          </StoreProvider>
+            </StoreProvider>
+          </AuthProvider>
         </LanguageProvider>
       </body>
     </html>

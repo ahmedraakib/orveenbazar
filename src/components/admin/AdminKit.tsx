@@ -18,6 +18,7 @@ import {
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useAuth } from "@/providers/AuthProvider";
 import { useAdminStore } from "@/providers/AdminStoreProvider";
+import { useToast } from "@/providers/StoreProvider";
 import { organizations, type OrgSlug } from "@/data/organizations";
 import { Logo } from "@/components/layout/Logo";
 import { Badge, inputClass } from "@/components/ui/core";
@@ -112,11 +113,18 @@ export function AdminShell({
 }) {
   const { t } = useLanguage();
   const { user, canAccessAdmin, orgAllowed, isAdmin, allowedOrgs } = useAdminAccess(org);
+  const { logout } = useAuth();
+  const { push } = useToast();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const current = org ?? "orveen";
 
   useEffect(() => setOpen(false), [pathname]);
+
+  const signOut = () => {
+    logout();
+    push(t("auth.signedOut"), "info");
+  };
 
   if (!canAccessAdmin || !orgAllowed) {
     return (
@@ -189,6 +197,14 @@ export function AdminShell({
                 <LogOut className="h-4 w-4" />
                 {t("admin.openSite")}
               </Link>
+              <button
+                type="button"
+                onClick={signOut}
+                className="flex w-full items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-left text-[13.5px] font-semibold text-[#DC2626] transition hover:bg-[#DC2626]/10"
+              >
+                <LogOut className="h-4 w-4" />
+                {t("account.signOut")}
+              </button>
             </div>
           </div>
         </aside>
@@ -226,6 +242,16 @@ export function AdminShell({
               </button>
             </div>
             {nav}
+            <div className="mt-3 border-t border-[#E2E8EA] pt-3">
+              <button
+                type="button"
+                onClick={signOut}
+                className="flex w-full items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-left text-[13.5px] font-semibold text-[#DC2626] transition hover:bg-[#DC2626]/10"
+              >
+                <LogOut className="h-4 w-4" />
+                {t("account.signOut")}
+              </button>
+            </div>
           </div>
         </div>
       ) : null}

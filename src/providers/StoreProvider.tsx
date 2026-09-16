@@ -12,6 +12,7 @@ import {
 } from "react";
 import { LS_KEYS, readLS, writeLS } from "@/lib/utils";
 import type { ToastItem } from "@/lib/types";
+import { useAuth } from "@/providers/AuthProvider";
 
 /* ----------------------------- Wishlist ----------------------------- */
 
@@ -47,21 +48,32 @@ interface UIContextValue {
 const UIContext = createContext<UIContextValue | null>(null);
 
 export function StoreProvider({ children }: { children: ReactNode }) {
+  const { user } = useAuth();
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [toasts, setToasts] = useState<ToastItem[]>([]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const toastId = useRef(0);
   const hydrated = useRef(false);
+  const skipPersist = useRef(false);
+  const wishlistKey = user ? `${LS_KEYS.wishlist}:${user.id}` : null;
 
   useEffect(() => {
-    setWishlist(readLS<string[]>(LS_KEYS.wishlist, []));
-    hydrated.current = true;
-  }, []);
+    skipPersist.current = true;
+    hydrated.current = Boolean(wishlistKey);
+    const load = window.setTimeout(() => {
+      setWishlist(wishlistKey ? readLS<string[]>(wishlistKey, []) : []);
+    }, 0);
+    return () => window.clearTimeout(load);
+  }, [wishlistKey]);
 
   useEffect(() => {
-    if (hydrated.current) writeLS(LS_KEYS.wishlist, wishlist);
-  }, [wishlist]);
+    if (!wishlistKey || !hydrated.current || skipPersist.current) {
+      skipPersist.current = false;
+      return;
+    }
+    writeLS(wishlistKey, wishlist);
+  }, [wishlist, wishlistKey]);
 
   const dismiss = useCallback((id: number) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
