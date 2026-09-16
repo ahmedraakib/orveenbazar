@@ -6,11 +6,7 @@ import { LanguageProvider } from "@/providers/LanguageProvider";
 import { StoreProvider } from "@/providers/StoreProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { AdminStoreProvider } from "@/providers/AdminStoreProvider";
-import { TopBar } from "@/components/layout/TopBar";
-import { Header } from "@/components/layout/Header";
-import { MobileNavigation } from "@/components/layout/MobileNavigation";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { ToastViewport } from "@/components/ui/Toast";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -86,13 +82,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 >
                   Skip to content
                 </a>
-                <TopBar />
-                <Header />
-                <main id="main-content">{children}</main>
-                <Footer />
-                <MobileNavigation />
+                <SiteShell>{children}</SiteShell>
                 <ToastViewport />
-                <WhatsAppButton />
               </AdminStoreProvider>
             </StoreProvider>
           </AuthProvider>

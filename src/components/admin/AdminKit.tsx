@@ -117,9 +117,12 @@ export function AdminShell({
   const { push } = useToast();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+  }
   const current = org ?? "orveen";
-
-  useEffect(() => setOpen(false), [pathname]);
 
   const signOut = () => {
     logout();
@@ -312,8 +315,12 @@ export function ImageUploader({
 }) {
   const { t } = useLanguage();
   const tImageUrl = () => t("admin.imageUrl");
+  const [prevValue, setPrevValue] = useState(value);
   const [preview, setPreview] = useState<string | undefined>(value);
-  useEffect(() => setPreview(value), [value]);
+  if (prevValue !== value) {
+    setPrevValue(value);
+    setPreview(value);
+  }
 
   const handle = (file: File | undefined) => {
     if (!file) return;

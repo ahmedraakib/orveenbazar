@@ -34,6 +34,7 @@ interface AuthContextValue {
   register: (name: string, email: string, password: string) => Promise<{ ok: boolean; error?: string }>;
   logout: () => void;
   updateName: (name: string) => void;
+  resetPassword: (email: string, password: string) => Promise<{ ok: boolean; error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -89,7 +90,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const demo = demoAccounts.find((d) => d.email === normalized);
     const registered = readLS<RegisteredUser[]>(USERS_KEY, []);
     const reg = registered.find((r) => r.email.toLowerCase() === normalized);
-    const expected = demo?.password ?? reg?.password;
+    const expected = reg?.password ?? demo?.password;
     if (!expected || expected !== password) {
       return { ok: false, error: "invalid" };
     }
@@ -124,6 +125,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { ok: true };
   }, []);
 
+  const resetPassword = useCallback(async (email: string, newPassword: string) => {
+    await wait(600);
+    const normalized = email.trim().toLowerCase();
+    const demo = demoAccounts.find((d) => d.email === normalized);
+    const registered = readLS<RegisteredUser[]>(USERS_KEY, []);
+    const regIndex = registered.findIndex((r) => r.email.toLowerCase() === normalized);
+
+    if (regIndex !== -1) {
+      const next = [...registered];
+      next[regIndex] = { ...next[regIndex], password: newPassword };
+      writeLS(USERS_KEY, next);
+      return { ok: true };
+    } else if (demo) {
+      const mockUser = mockUsers.find((u) => u.email === normalized);
+      const name = mockUser?.name ?? demo.email.split("@")[0];
+      const next = [...registered, { name, email: demo.email, password: newPassword }];
+      writeLS(USERS_KEY, next);
+      return { ok: true };
+    }
+    return { ok: false, error: "notFound" };
+  }, []);
+
   const logout = useCallback(() => {
     setUser(null);
     removeLS(SESSION_KEY);
@@ -139,8 +162,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({ user, ready, login, register, logout, updateName }),
-    [user, ready, login, register, logout, updateName],
+    () => ({ user, ready, login, register, logout, updateName, resetPassword }),
+    [user, ready, login, register, logout, updateName, resetPassword],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
