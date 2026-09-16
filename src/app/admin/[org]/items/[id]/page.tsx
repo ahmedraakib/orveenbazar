@@ -40,6 +40,23 @@ export default function ItemEditorPage() {
   const [saving, setSaving] = useState(false);
   const [leaveOpen, setLeaveOpen] = useState(false);
 
+  useEffect(() => {
+    if (!existing) return;
+    const load = window.setTimeout(() => {
+      setForm((previous) =>
+        previous?.id === existing.id
+          ? previous
+          : {
+              ...existing,
+              title: { ...existing.title },
+              description: { ...existing.description },
+              variants: existing.variants.map((variant) => ({ ...variant })),
+            },
+      );
+    }, 0);
+    return () => window.clearTimeout(load);
+  }, [existing]);
+
   const dirty = useMemo(
     () => Boolean(form && existing && JSON.stringify(form) !== JSON.stringify(existing)),
     [form, existing],

@@ -6,7 +6,6 @@ import { ArrowRight, ChevronLeft, ChevronRight, Headphones, ShieldCheck, Tag, Tr
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useAdminStore } from "@/providers/AdminStoreProvider";
 import { organizations, orgBySlug } from "@/data/organizations";
-import { activeBanners } from "@/data/banners";
 import { BrandCard, CatalogCard, CategoryCard } from "@/components/catalog/cards";
 import { Banner } from "@/components/brand/bits";
 import { Badge, SectionHeading } from "@/components/ui/core";
@@ -187,7 +186,8 @@ export function FeaturedItemsSection() {
 
 export function BannerCarousel() {
   const { t } = useLanguage();
-  const banners = activeBanners();
+  const { state } = useAdminStore();
+  const banners = state.banners.filter((banner) => banner.active).sort((a, b) => a.sortOrder - b.sortOrder);
   const [index, setIndex] = useState(0);
   if (banners.length === 0) return null;
   const safe = Math.min(index, banners.length - 1);
